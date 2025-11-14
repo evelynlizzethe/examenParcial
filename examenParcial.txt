@@ -1,0 +1,27 @@
+// Pregunta 1
+var myMethod = List[Object]{
+  var List[logs] =
+};
+
+
+
+
+
+
+// Pregunta 2
+
+class double
+def listaPrecios = List(
+  producto("Arroz" ),
+  producto("Jamon"),
+  producto("Azucar")
+);
+val listaPrecios
+
+
+// Pregunta 3
+
+def generadorIncrementador(incremento: Int): Int => Int = {
+  def incrementar(x: Int): Int = x + incremento
+  incrementar
+}
