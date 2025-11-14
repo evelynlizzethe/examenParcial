@@ -1,0 +1,55 @@
+// Pregunta 1
+def myMethod(datos: List[Double]): Double = {
+  val logs = datos.map(Math.log)
+  val promedioLog = logs.sum / logs.size
+  val sumaCuadrados = logs.map(x => {
+    val diff = x - promedioLog
+    diff * diff
+  }).sum
+  Math.sqrt(sumaCuadrados / logs.size)
+}
+
+
+// Pregunta 2
+
+object AjustePreciosApp {
+
+  // Función genérica que aplica cualquier política de ajuste
+  def ajustarPrecios(
+                      precios: List[Double],
+                      regla: Double => Double
+                    ): List[Double] = {
+    precios.map(regla)
+  }
+
+  // Políticas de ejemplo
+
+  // 1. Impuesto del 12%
+  val iva12: Double => Double = precio => precio * 1.12
+
+  // 2. Descuento del 20%
+  val descuento20: Double => Double = precio => precio * 0.80
+
+  // 3. Ajuste por temporada alta (suma 5 dólares)
+  val temporadaAlta: Double => Double = precio => precio + 5
+
+  // Main para probarlo
+  def main(args: Array[String]): Unit = {
+
+    val precios = List(10.0, 20.0, 30.0)
+
+    val preciosIVA = ajustarPrecios(precios, iva12)
+    val preciosDesc = ajustarPrecios(precios, descuento20)
+    val preciosTemp = ajustarPrecios(precios, temporadaAlta)
+
+    println("Precios originales: " + precios)
+    println("Con IVA 12%: " + preciosIVA)
+    println("Con descuento 20%: " + preciosDesc)
+    println("Con temporada alta: " + preciosTemp)
+  }
+}
+
+// Pregunta 3
+def generadorIncrementador(incremento: Int): Int => Int = {
+  (x: Int) => x + incremento
+}
