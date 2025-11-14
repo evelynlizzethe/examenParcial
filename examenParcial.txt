@@ -1,7 +1,10 @@
 // Pregunta 1
-var myMethod = List[Object]{
-  var List[logs] =
-};
+def myMethod(datos: List[Double]): Double = {
+  val logs = datos.map(Math.log)
+  val suma = logs.sum / logs.size
+  Math.sqrt(logs.map(x => math.pow(x - suma, 2)).sum / logs.size)
+}
+ 
 
 
 
@@ -12,9 +15,9 @@ var myMethod = List[Object]{
 
 class double
 def listaPrecios = List(
-  producto("Arroz" ),
-  producto("Jamon"),
-  producto("Azucar")
+  producto("Arroz", 2.50),
+  producto("Jamon", 4),
+  producto("Azucar", 3)
 );
 val listaPrecios
 
